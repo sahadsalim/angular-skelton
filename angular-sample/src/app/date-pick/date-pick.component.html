@@ -1,0 +1,49 @@
+<form [formGroup]="sampleForm">
+<mat-form-field appearance="fill">
+  <input
+    formControlName="sampleReceivedOn"
+    (blur)="onDateFormat(sampleForm.controls.sampleReceivedOn)"
+    placeholder="MM/DD/YYYY"
+    [max]="today"
+    [min]="minDate"
+    class="form-control date-input"
+    matInput
+    [matDatepicker]="picker01"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker01"> </mat-datepicker-toggle>
+  <mat-datepicker #picker01></mat-datepicker>
+</mat-form-field>
+<div
+  *ngIf="
+    sampleForm.controls.sampleReceivedOn.invalid &&
+    sampleForm.controls.sampleReceivedOn.errors?.required &&
+    !sampleForm.controls.sampleReceivedOn.errors?.matDatepickerParse
+  "
+  class="invalid-feedback d-block"
+>
+  <span>Required</span>
+</div>
+<div
+  *ngIf="
+    sampleForm.controls.sampleReceivedOn?.errors &&
+    sampleForm.controls.sampleReceivedOn?.dirty &&
+    (!sampleForm.controls.sampleReceivedOn.errors?.required ||
+      sampleForm.controls.sampleReceivedOn.errors?.matDatepickerParse)
+  "
+  id="validationServer03Feedback"
+  class="invalid-feedback d-block"
+>
+  <span *ngIf="sampleForm.controls.sampleReceivedOn?.errors?.matDatepickerParse"
+    >Invalid date, date format should be in MM/DD/YYYY format</span
+  >
+  <span *ngIf="sampleForm.controls.sampleReceivedOn?.errors?.matDatepickerMax"
+    >Date should be less than or equal to today's date</span
+  >
+  <span *ngIf="sampleForm.controls.sampleReceivedOn?.errors?.matDatepickerMin"
+    >Enter proper date format
+  </span>
+</div>
+</form>
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

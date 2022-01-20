@@ -1,0 +1,72 @@
+<section
+  class="ngx-dropdown-container multiselect-container"
+  [ngClass]="{ open: showOptions }"
+>
+  <div
+    tabindex="0"
+    (keypress)="openCloseOnEnter($event, 99999999)"
+    (click)="openDropDown()"
+    class="input-block"
+  >
+    <div class="ngx-dropdown-button" #selectView>
+      <ul class="select-list" #selectList>
+        <ng-container *ngIf="itemLabels && itemLabels.length >0">
+          <li>{{getItem(0)}}</li><li *ngIf="itemLabels.length>1">,+{{(itemLabels.length-1)}} more</li>
+          <!-- <li>{{itemLabels[0]?[label]}},+{{(itemLabels.length-1)}} more</li> -->
+        </ng-container>
+        <li *ngIf="itemLabels.length === 0">Select</li>
+
+      </ul>
+      <span class="nsdicon-angle-down"></span>
+    </div>
+  </div>
+  <div class="ngx-dropdown-list-container dropdown-search" *ngIf="showOptions">
+    <div #chosenList *ngIf="showSearch" class="search-wrap">
+      <input
+        (click)="$event.stopPropagation()"
+        type="text"
+        tabindex="0"
+        #chosenSearch
+        [(ngModel)]="searchText"
+        (focus)="onSearch()"
+        [disabled]="disabled"
+        (ngModelChange)="filter()"
+        placeholder="Search"
+        class="form-control"
+      />
+      <div
+        class="search-close d-none"
+        *ngIf="searchText.trim().length > 0"
+      ></div>
+    </div>
+    <ul class="available-items">
+      <li
+        *ngFor="let option of filteredArr; trackBy: trackByFn; let i = index"
+        #result
+        id="customCheck{{ id }}-{{ i + 1 }}"
+        aria-selected="true"
+        aria-controls="panel-name1"
+      >
+        <div class="form-check form-check-inline">
+          <input
+            (keydown)="openCloseOnEnter($event, i)"
+            (keypress)="openCloseOnEnter($event, i)"
+            type="checkbox"
+            id="check-customCheck{{ id }}-{{ i + 1 }}"
+            [checked]="option.status"
+            (change)="changeOption($event, option); submitSelectedValues()"
+            class="form-check-input"
+          />
+          <label
+            for="check-customCheck{{ id }}-{{ i + 1 }}"
+            class="form-check-label"
+            >{{ option[label] }}</label
+          >
+        </div>
+      </li>
+      <li *ngIf="filteredItems?.length === 0" class="p-2">
+        <h6>No data available</h6>
+      </li>
+    </ul>
+  </div>
+</section>

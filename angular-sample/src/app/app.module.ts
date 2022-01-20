@@ -5,13 +5,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DatePickComponent } from './date-pick/date-pick.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MultiSelectorComponent } from './multi-selector/multi-selector.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    DatePickComponent,
+    MultiSelectorComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule,MaterialModule, AppRoutingModule
+    BrowserModule, BrowserAnimationsModule,MaterialModule, AppRoutingModule,
+    ReactiveFormsModule,FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

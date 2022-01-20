@@ -1,11 +1,31 @@
-<p>dashboard works!</p>
-<mat-card class="example-card mat-elevation-z8  ">
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-</mat-card>
+<div class="dash">
+  <mat-card class="example-card mat-elevation-z8  ">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card  class="example-card mat-elevation-z8  ">
+    <h2>Date picker with validation</h2>
+
+    <app-date-pick></app-date-pick>
+  </mat-card>
+  <mat-card class="example-card mat-elevation-z8  ">
+    <h2>Multi dropdown</h2>
+    <app-multi-selector [showSearch]="true"
+  (selectedObjects)="onLanguageSelect($event)"
+  [placeholder]="'Select'"
+  [selectedInput]="selectedLanguages"
+  [label]="'langName'"
+  [uId]="'langId'"
+  [options]="dataArray"
+>
+</app-multi-selector>
+{{selectedLanguages|json}}
+  </mat-card>
+</div>
+

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "angular-moment": "^1.3.0",
     "hammerjs": "^2.0.8"
   }
 }

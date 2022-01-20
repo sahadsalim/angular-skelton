@@ -13,3 +13,68 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .tc{
   text-align: center;
 }
+.invalid-feedback{
+  display: none;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: .875rem;
+  color: #dc3534;
+}
+.invalid-feedback::before{
+  content: url(assets/icons/invalid-close.svg);
+  margin-right: 2px;
+}
+.d-block{
+  display: block !important;
+}
+.input-block{
+  border:2px solid lightgray;
+  border-radius: 3px;
+}
+li{
+  list-style: none;
+}
+
+
+input[type="checkbox"] {
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid #333;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 .25em 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+input[type="checkbox"]:checked + label:before {
+  background: #fff;
+  color: #333;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+::-webkit-scrollbar{
+  height: 5px;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #aebbcf;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px transparent;
+  border-radius: 2px;
+}

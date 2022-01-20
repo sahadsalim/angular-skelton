@@ -1,0 +1,7 @@
+.dash{
+  display: flex;
+  justify-content: space-around;
+}
+.dash mat-card{
+  min-width: 300px;
+}
