@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DatePickComponent } from './date-pick/date-pick.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiSelectorComponent } from './multi-selector/multi-selector.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,7 @@ import { MultiSelectorComponent } from './multi-selector/multi-selector.componen
   imports: [
     BrowserModule, BrowserAnimationsModule,MaterialModule, AppRoutingModule,
     ReactiveFormsModule,FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

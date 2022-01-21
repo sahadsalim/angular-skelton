@@ -1,1 +1,1 @@
-window.apiEndPoint='https://google.com';
+window.apiEndPoint='https://api.sampleapis.com/';
